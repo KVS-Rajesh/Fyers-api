@@ -36,7 +36,7 @@ app.post('/tv-webhook', async (req, res) => {
   };
 
   try {
-    const response = await axios.post("https://api.fyers.in/api/v2/orders", orderPayload, {
+    const response = await axios.post("https://api.fyers.in/api/v3/orders", orderPayload, {
       headers: {
         "Authorization": `Bearer YOUR_FYERS_ACCESS_TOKEN`,
         "Content-Type": "application/json"
