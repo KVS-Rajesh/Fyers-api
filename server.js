@@ -10,8 +10,14 @@ app.get('/', (req, res) => {
   res.send('Fyers Node Webhook Server is running.');
 });
 
-app.get('/callback', (req, res) => {
+app.get('/callback', async (req, res) => {
   const authCode = req.query.auth_code;
+  if (!authCode) {
+    console.log("No auth_code received.");
+    return res.status(400).send("Missing auth_code");
+  }
+
+  console.log("Received auth_code:", authCode);
   res.send(`Auth Code: ${authCode}`);
 });
 
