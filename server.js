@@ -11,6 +11,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/callback', async (req, res) => {
+  console.log(req.query.auth_code);
+  console.log(req);
   const authCode = req.query.auth_code;
   if (!authCode) {
     console.log("No auth_code received.");
